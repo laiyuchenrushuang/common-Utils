@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="theme_color">#0366d8</color>
+    <color name="black">#000000</color>
+    <color name="black_50">#50000000</color>
+    <color name="white">#ffffff</color>
+    <color name="white_80">#80ffffff</color>
+    <color name="red">#FF4211</color>
+    <color name="textcolor">#001226</color>
+    <color name="textcolor2">#66717d</color>
+    <color name="textcolor3">#666666</color>
+    <color name="linecolor">#ccd0d4</color>
+    <color name="gray">#e8e8e8</color>
+    <color name="green">#02F82B</color>
+    <color name="yelow">#FFC400</color>
+    <color name="edit_text_border">#ccd0d4</color>
+    <color name="bule_pressed">#990366d8</color>
+    <color name="bule_press">#015cc4</color>
+    <color name="bule_sky">#00E5FF</color>
+    <color name="orange">#ff9e48</color>
+    <color name="orange_80">#80ff9e48</color>
+    <color name="theme_bg">#FBFBFB</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="network_error_bg">#FFDDDD</color>
+
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#B0000000</color>
+    <color name="viewfinder_frame">#90FFFFFF</color>
+    <color name="result_point_color">#90FFFFFF</color>
+    <color name="laser_color">#196fda</color>
+    <color name="corner_color">#196fda</color>
+    <color name="line_color">#979797</color>
+</resources>

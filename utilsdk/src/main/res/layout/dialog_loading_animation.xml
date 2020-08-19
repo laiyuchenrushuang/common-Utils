@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="100dp"
+              android:layout_height="100dp"
+              android:background="@drawable/bg_alert_dialog_style"
+              android:gravity="center"
+              android:minHeight="100dp"
+              android:minWidth="100dp"
+              android:orientation="vertical"
+              android:padding="10dp">
+
+    <com.seatrend.utilsdk.progress.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="努力加载中..."
+            android:textColor="@android:color/white"/>
+</LinearLayout>
