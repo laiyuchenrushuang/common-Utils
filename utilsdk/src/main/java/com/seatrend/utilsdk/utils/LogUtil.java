@@ -29,7 +29,7 @@ public class LogUtil {
         return mLogUtil;
     }
 
-    public void d(String msg) {
+    public static void d(String msg) {
         Log.d("[lylog]", msg);
     }
 

@@ -150,38 +150,15 @@ public class ThreadPoolManager {
      * delay 延迟多久后执行
      * period 执行周期(轮询)
      */
-    public void createSchedulePool(final Runnable runnable, final long delay, final Long period) {
-        if(timer ==null){
+    public void schedule(final TimerTask runnable, final long delay){
+
+        if(timer !=null){
+
+        }else {
             timer = new Timer();
         }
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(ThreadConstant.CORE_POOL_SIZE);
-                newScheduledThreadPool.schedule(runnable, 0, TimeUnit.SECONDS);
-            }
-        }, delay, period);
-    }
 
-
-    /**
-     * 定时安全任务池
-     * <p>
-     * runable 线程
-     * delay 延迟多久后执行
-     */
-    private void createSchedulePool(final Runnable runnable, final long delay) {
-
-        if(timer ==null){
-            timer = new Timer();
-        }
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(ThreadConstant.CORE_POOL_SIZE);
-                newScheduledThreadPool.schedule(runnable, 0, TimeUnit.SECONDS);
-            }
-        }, delay);
+        timer.schedule(runnable,delay);
     }
 
     /**

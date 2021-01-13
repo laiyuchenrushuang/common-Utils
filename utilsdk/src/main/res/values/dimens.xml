@@ -1,0 +1,17 @@
+<resources>
+    <dimen name="text_super_24sp">24sp</dimen>
+    <dimen name="text_super_20sp">20sp</dimen>
+    <dimen name="text_super_18sp">18sp</dimen>
+    <dimen name="text_large_16sp">16sp</dimen>
+    <dimen name="text_normal_14sp">14sp</dimen>
+    <dimen name="text_normal_12sp">12sp</dimen>
+
+
+
+
+    <dimen name="line_height">1dp</dimen>
+    <dimen name="ywfh_h">40dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+
+</resources>

@@ -14,7 +14,8 @@ public class SharedPreferencesUtils {
      */
     public static String getNetworkAddress(Context context){
         return   context.getSharedPreferences(Constants.SETTING, Context.MODE_PRIVATE)
-                .getString("key","");
+                .getString("key","http://www.joyseevip.com/fate");
+//                .getString("key","http://192.168.0.218:8080/scrapCarSystem/");
     }
 
     /**
@@ -26,5 +27,20 @@ public class SharedPreferencesUtils {
                 .edit().putString("key",network).apply();
     }
 
-
+    /**
+     * 设置time
+     * @param network
+     */
+    public static void setTime(Context context,String network){
+        context.getSharedPreferences(Constants.SETTING, Context.MODE_PRIVATE)
+                .edit().putString("time",network).apply();
+    }
+    /**
+     * 获取time
+     * @return  当前的时间戳
+     */
+    public static String getTime(Context context){
+        return   context.getSharedPreferences(Constants.SETTING, Context.MODE_PRIVATE)
+                .getString("time",StringUtils.longToStringData(System.currentTimeMillis()));
+    }
 }

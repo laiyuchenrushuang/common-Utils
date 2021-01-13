@@ -1,0 +1,15 @@
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/option_1"
+        android:title="信息变更"
+        app:showAsAction="never"/>
+    <item android:id="@+id/option_2"
+        android:title="修改密码"
+        app:showAsAction="never"/>
+    <item android:id="@+id/option_3"
+        android:title="账号禁用"
+        app:showAsAction="never"/>
+
+</menu>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_parent"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="22dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:cropToPadding="true"
+        android:layout_marginLeft="12dp"
+        android:src="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/tv_titile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_super_20sp" />
+
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="12dp"
+        android:padding="6dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_large_16sp" />
+
+    <ImageView
+        android:id="@+id/iv_right"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:scaleType="centerInside"
+        android:layout_marginEnd="12dp"
+        android:padding="6dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/line_color_title" />
+</RelativeLayout>

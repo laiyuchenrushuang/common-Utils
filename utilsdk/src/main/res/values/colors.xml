@@ -1,37 +1,481 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#3F51B5</color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary" tools:ignore="DuplicateDefinition">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="theme_color">#0366d8</color>
-    <color name="black">#000000</color>
     <color name="black_50">#50000000</color>
-    <color name="white">#ffffff</color>
     <color name="white_80">#80ffffff</color>
-    <color name="red">#FF4211</color>
     <color name="textcolor">#001226</color>
     <color name="textcolor2">#66717d</color>
     <color name="textcolor3">#666666</color>
     <color name="linecolor">#ccd0d4</color>
     <color name="gray">#e8e8e8</color>
-    <color name="green">#02F82B</color>
-    <color name="yelow">#FFC400</color>
     <color name="edit_text_border">#ccd0d4</color>
     <color name="bule_pressed">#990366d8</color>
     <color name="bule_press">#015cc4</color>
-    <color name="bule_sky">#00E5FF</color>
-    <color name="orange">#ff9e48</color>
     <color name="orange_80">#80ff9e48</color>
     <color name="theme_bg">#FBFBFB</color>
-    <color name="transparent">#00FFFFFF</color>
     <color name="network_error_bg">#FFDDDD</color>
 
-    <color name="viewfinder_mask">#60000000</color>
-    <color name="result_view">#B0000000</color>
     <color name="viewfinder_frame">#90FFFFFF</color>
     <color name="result_point_color">#90FFFFFF</color>
     <color name="laser_color">#196fda</color>
     <color name="corner_color">#196fda</color>
     <color name="line_color">#979797</color>
+    <color name="common_line_color">#DDDDDD</color>
+
+    <color name="shudowgray">#80FFFFFF</color>
+
+    <color name="main_color">#5677FC</color>
+    <color name="main_color_alpha80">#cc5677FC</color>
+
+
+    <color name="title_color">#0f8ec5</color>
+    <color name="content_color">#737373</color>
+    <color name="voice_text_normal">#ffffffff</color>
+    <color name="voice_text_pressed">#ffff453e</color>
+    <color name="voice_text_radio_on">#ffff453e</color>
+    <color name="voice_text_radio_off">#ffffffff</color>
+
+    <color name="span_color">#0099FF</color>
+    <color name="remark_text">#7b2f2f</color>
+    <color name="tip_text">#ff0000</color>
+
+    <!-- 画面背景色 -->
+    <drawable name="layout_backgroud">#000000</drawable>
+    <!-- 分割线背景色 -->
+    <drawable name="line_background">#161823</drawable>
+    <!-- 控件按下时显示的颜色 -->
+    <color name="list_backgroud_color">#2fb3cb</color>
+
+    <!-- actionbar默认的背景色 -->
+    <color name="actionbar_bg">#3a81cc</color>
+    <color name="transparent">#00000000</color>
+    <!-- For list corner -->
+    <color name="list_corner_stroke">#d2d2d0</color>
+    <color name="list_corner_d">#ffffff</color>
+    <color name="list_corner_p">#FEEFB9</color>
+    <color name="edittext_bg">#ffffff</color>
+    <color name="edittext_stroke">#d2d2d0</color>
+    <!-- activity默认的背景色 -->
+    <color name="common_color_activity_bg">#fafafa</color>
+    <!-- 公共颜色设置 -->
+    <color name="common_color_layout_bg">#f5f5f5</color>
+    <color name="common_color_txt_tips">#23afff</color>
+    <color name="common_color_line_bg">#e7e7e7</color>
+    <color name="common_color_list_line">#e7e7e7</color>
+    <color name="common_color_list_bg">#ffffff</color>
+    <!-- custom Dialog -->
+    <color name="dialog_bg">#fafafa</color>
+    <color name="dialog_txt_title">#212121</color>
+    <color name="dialog_txt_content">#4c4c4c</color>
+    <color name="dialog_txt_default">#4c4c4c</color>
+    <color name="dialog_txt_light">#2196f3</color>
+    <color name="dialog_btn_normal">#fafafa</color>
+    <color name="dialog_btn_pressed">#E0E0E0</color>
+    <!-- 常用控件统一颜色值 -->
+    <color name="red">#f44336</color>
+    <color name="pink">#e91e63</color>
+    <color name="purple">#9c27b0</color>
+    <color name="deep_purple">#673ab7</color>
+    <color name="indigo">#3f51b5</color>
+    <color name="blue">#2196f3</color>
+    <color name="light_blue">#03a9f4</color>
+    <color name="cyan">#00bcd4</color>
+    <color name="teal">#009688</color>
+    <color name="green">#4caf50</color>
+    <color name="color_000117">#000117</color>
+    <color name="light_green">#8bc34a</color>
+    <color name="lime">#cddc39</color>
+    <color name="yellow">#ffeb3b</color>
+    <color name="amber">#ffc107</color>
+    <color name="orange">#ff9800</color>
+    <color name="brown">#795548</color>
+    <color name="grey">#9e9e9e</color>
+    <color name="blue_grey">#607d8b</color>
+    <color name="deep_orange">#ff5722</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+
+    <color name="white_alph70">#88ffffff</color>
+
+    <color name="grey_alph30">#449e9e9e</color>
+    <!-- red -->
+    <color name="red_ffebee">#ffebee</color>
+    <color name="red_ffcdd2">#ffcdd2</color>
+    <color name="red_ef9a9a">#ef9a9a</color>
+    <color name="red_e57373">#e57373</color>
+    <color name="red_ef5350">#ef5350</color>
+    <color name="red_f44336">#f44336</color>
+    <color name="red_e53935">#e53935</color>
+    <color name="red_d32f2f">#d32f2f</color>
+    <color name="red_c62828">#c62828</color>
+    <color name="red_b71c1c">#b71c1c</color>
+
+    <!-- indigo -->
+    <color name="indigo_e8eaf6">#e8eaf6</color>
+    <color name="indigo_c5cae9">#c5cae9</color>
+    <color name="indigo_9fa8da">#9fa8da</color>
+    <color name="indigo_7986cb">#7986cb</color>
+    <color name="indigo_5c6bc0">#5c6bc0</color>
+    <color name="indigo_3f51b5">#3f51b5</color>
+    <color name="indigo_3949ab">#3949ab</color>
+    <color name="indigo_303f9f">#303f9f</color>
+    <color name="indigo_283593">#283593</color>
+    <color name="indigo_1a237e">#1a237e</color>
+    <!-- gray -->
+    <color name="gray_4c4c4c">#4c4c4c</color>
+    <color name="gray_cecece">#cecece</color>
+    <color name="gray_999999">#999999</color>
+    <color name="gray_9e9e9e">#9e9e9e</color>
+    <color name="gray_fafafa">#fafafa</color>
+    <color name="gray_f5f5f5">#f5f5f5</color>
+    <color name="gray_eeeeee">#eeeeee</color>
+    <color name="gray_e0e0e0">#e0e0e0</color>
+    <color name="gray_bdbdbd">#bdbdbd</color>
+    <color name="gray_757575">#757575</color>
+    <color name="gray_616161">#616161</color>
+    <color name="gray_424242">#424242</color>
+    <color name="gray_212121">#212121</color>
+    <color name="gray_333333">#333333</color>
+    <!-- blue grey -->
+    <color name="blue_grey_eceff1">#eceff1</color>
+    <color name="blue_grey_cfd8dc">#cfd8dc</color>
+    <color name="blue_grey_b0bec5">#b0bec5</color>
+    <color name="blue_grey_90a4ae">#90a4ae</color>
+    <color name="blue_grey_78909c">#78909c</color>
+    <color name="blue_grey_607d8b">#607d8b</color>
+    <color name="blue_grey_546e7a">#546e7a</color>
+    <color name="blue_grey_455a64">#455a64</color>
+    <color name="blue_grey_37474f">#37474f</color>
+    <color name="blue_grey_263238">#263238</color>
+    <!-- blue -->
+    <color name="blue_e3f2fd">#e3f2fd</color>
+    <color name="blue_bbdefb">#bbdefb</color>
+    <color name="blue_90caf9">#90caf9</color>
+    <color name="blue_64b5f6">#64b5f6</color>
+    <color name="blue_42a5f5">#42a5f5</color>
+    <color name="blue_2196f3">#2196f3</color>
+    <color name="blue_1e88e5">#1e88e5</color>
+    <color name="blue_1976d2">#1976d2</color>
+    <color name="blue_1565c0">#1565c0</color>
+    <color name="blue_0d47a1">#0d47a1</color>
+    <color name="blue_2C8FEB">#2C8FEB</color>
+    <!-- light blue -->
+    <color name="light_blue_e1f5fe">#e1f5fe</color>
+    <color name="light_blue_b3e5fc">#b3e5fc</color>
+    <color name="light_blue_81d4fa">#81d4fa</color>
+    <color name="light_blue_4fc3f7">#4fc3f7</color>
+    <color name="light_blue_29b6f6">#29b6f6</color>
+    <color name="light_blue_03a9f4">#03a9f4</color>
+    <color name="light_blue_039be5">#039be5</color>
+    <color name="light_blue_0288d1">#0288d1</color>
+    <color name="light_blue_0277bd">#0277bd</color>
+    <color name="light_blue_01579b">#01579b</color>
+    <!-- orange -->
+    <color name="orange_fff3e0">#fff3e0</color>
+    <color name="orange_ffe0b2">#ffe0b2</color>
+    <color name="orange_ffcc80">#ffcc80</color>
+    <color name="orange_ffb74d">#ffb74d</color>
+    <color name="orange_ffa726">#ffa726</color>
+    <color name="orange_ff9800">#ff9800</color>
+    <color name="orange_fb8c00">#fb8c00</color>
+    <color name="orange_f57c00">#f57c00</color>
+    <color name="orange_ef6c00">#ef6c00</color>
+    <color name="orange_e65100">#e65100</color>
+    <!-- deep orange -->
+    <color name="deep_orange_fbe9e7">#fbe9e7</color>
+    <color name="deep_orange_ffccbc">#ffccbc</color>
+    <color name="deep_orange_ffab91">#ffab91</color>
+    <color name="deep_orange_ff8a65">#ff8a65</color>
+    <color name="deep_orange_ff7043">#ff7043</color>
+    <color name="deep_orange_ff5722">#ff5722</color>
+    <color name="deep_orange_f4511e">#f4511e</color>
+    <color name="deep_orange_e64a19">#e64a19</color>
+    <color name="deep_orange_d84315">#d84315</color>
+    <color name="deep_orange_bf360c">#bf360c</color>
+
+    <!-- cyan -->
+    <color name="cyan_e0f7fa">#e0f7fa</color>
+    <color name="cyan_b2ebf2">#b2ebf2</color>
+    <color name="cyan_80deea">#80deea</color>
+    <color name="cyan_4dd0e1">#4dd0e1</color>
+    <color name="cyan_26c6da">#8d6e63</color>
+    <color name="cyan_00bcd4">#00bcd4</color>
+    <color name="cyan_00acc1">#00acc1</color>
+    <color name="cyan_0097a7">#0097a7</color>
+    <color name="cyan_00838f">#00838f</color>
+    <color name="cyan_006064">#006064</color>
+    <!-- teal -->
+    <color name="teal_e0f2f1">#e0f2f1</color>
+    <color name="teal_b2dfdb">#b2dfdb</color>
+    <color name="teal_80cbc4">#80cbc4</color>
+    <color name="teal_4db6ac">#4db6ac</color>
+    <color name="teal_26a69a">#26a69a</color>
+    <color name="teal_009688">#009688</color>
+    <color name="teal_00897b">#00897b</color>
+    <color name="teal_00796b">#00796b</color>
+    <color name="teal_00695c">#00695c</color>
+    <color name="teal_004d40">#004d40</color>
+    <!-- green -->
+    <color name="green_e8f5e9">#e8f5e9</color>
+    <color name="green_c8e6c9">#c8e6c9</color>
+    <color name="green_a5d6a7">#a5d6a7</color>
+    <color name="green_81c784">#81c784</color>
+    <color name="green_66bb6a">#66bb6a</color>
+    <color name="green_4caf50">#4caf50</color>
+    <color name="green_43a047">#43a047</color>
+    <color name="green_388e3c">#388e3c</color>
+    <color name="green_2e7d32">#2e7d32</color>
+    <color name="green_1b5e20">#1b5e20</color>
+    <!-- light green -->
+    <color name="light_green_f1f8e9">#f1f8e9</color>
+    <color name="light_green_dcedc8">#dcedc8</color>
+    <color name="light_green_c5e1a5">#c5e1a5</color>
+    <color name="light_green_aed581">#aed581</color>
+    <color name="light_green_9ccc65">#9ccc65</color>
+    <color name="light_green_8bc34a">#8bc34a</color>
+    <color name="light_green_7cb342">#7cb342</color>
+    <color name="light_green_689f38">#689f38</color>
+    <color name="light_green_558b2f">#558b2f</color>
+    <color name="light_green_33691e">#33691e</color>
+    <!-- lime -->
+    <color name="lime_f9fbe7">#f9fbe7</color>
+    <color name="lime_f0f4c3">#f0f4c3</color>
+    <color name="lime_e6ee9c">#e6ee9c</color>
+    <color name="lime_dce775">#dce775</color>
+    <color name="lime_d4e157">#d4e157</color>
+    <color name="lime_cddc39">#cddc39</color>
+    <color name="lime_c0ca33">#c0ca33</color>
+    <color name="lime_afb42b">#afb42b</color>
+    <color name="lime_9e9d24">#9e9d24</color>
+    <color name="lime_827717">#827717</color>
+    <!-- yellow -->
+    <color name="yellow_fffde7">#fffde7</color>
+    <color name="yellow_fff9c4">#fff9c4</color>
+    <color name="yellow_fff59d">#fff59d</color>
+    <color name="yellow_fff176">#fff176</color>
+    <color name="yellow_ffee58">#ffee58</color>
+    <color name="yellow_ffeb3b">#ffeb3b</color>
+    <color name="yellow_fdd835">#fdd835</color>
+    <color name="yellow_fbc02d">#fbc02d</color>
+    <color name="yellow_f9a825">#f9a825</color>
+    <color name="yellow_f57f17">#f57f17</color>
+    <!-- amber -->
+    <color name="amber_fff8e1">#fff8e1</color>
+    <color name="amber_ffecb3">#ffecb3</color>
+    <color name="amber_ffe082">#ffe082</color>
+    <color name="amber_ffd54f">#ffd54f</color>
+    <color name="amber_ffca28">#ffca28</color>
+    <color name="amber_ffc107">#ffc107</color>
+    <color name="amber_ffb300">#ffb300</color>
+    <color name="amber_ffa000">#ffa000</color>
+    <color name="amber_ff8f00">#ff8f00</color>
+    <color name="amber_ff6f00">#ff6f00</color>
+    <!-- scan doce -->
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+
+    <!-- custom -->
+    <!-- 红色 -->
+    <color name="red_color">#d0250e</color>
+    <!-- 银色 -->
+    <color name="silver_color">#c0c0c0</color>
+    <!-- 黑色 -->
+    <color name="black_color">#000000</color>
+    <!-- 系统黑色 -->
+    <color name="black_sys_color">#111111</color>
+    <!-- 白色 -->
+    <color name="white_color">#ffffff</color>
+    <!-- 象牙白 -->
+    <color name="white_ivory_color">#fffff0</color>
+    <!-- 花白 -->
+    <color name="white_floral_color">#fffaf0</color>
+    <!-- 浅灰 -->
+    <color name="gray_simple_color">#a9a9a9</color>
+    <!-- 淡灰 -->
+    <color name="gary_light_color">#d3d3d3</color>
+    <!-- 灰 -->
+    <color name="gray_color">#484545</color>
+    <!-- toast灰 -->
+    <color name="gary_toast_color">#999999</color>
+    <!-- 海贝白 -->
+    <color name="white_sea_shell_color">#fff5ee</color>
+    <!-- 烟白 -->
+    <color name="white_smoke_color">#f5f5f5</color>
+    <!-- 猫白 -->
+    <color name="white_cat_color">#e9e7d8</color>
+    <!-- 薄荷白 -->
+    <color name="white_mintcream_color">#f5fffa</color>
+    <!-- qq底部按钮白 -->
+    <color name="white_qq_color">#f9f9f9</color>
+    <!-- qq系统灰白 -->
+    <color name="white_gary_qq_sys_color">#eaeaea</color>
+    <!-- dialog按钮白 -->
+    <color name="white_button_color">#f4f4f4</color>
+    <!-- dialog按钮灰 -->
+    <color name="gray_button_color">#dce2eb</color>
+    <!-- 靛蓝色 -->
+    <color name="blue_indigo_color">#778899</color>
+    <!-- 深海蓝 -->
+    <color name="blue_dark_sea_color">#0f366d</color>
+    <!-- 深墨蓝 -->
+    <color name="blue_denim_color">#151d41</color>
+    <!-- 天空蓝 -->
+    <color name="blue_sky_color">#acd6e0</color>
+    <!-- 甸水蓝 -->
+    <color name="blue_cerulean_color">#acd6e0</color>
+    <!-- 系统蓝 -->
+    <color name="blue_sys_color">#0d86ff</color>
+    <!-- 底部黑蓝 -->
+    <color name="blue_dark_color">#09213a</color>
+    <!-- 轻淡蓝色 -->
+    <color name="blue_light_color">#d7e2ed</color>
+    <!-- 冰蓝色 -->
+    <color name="blue_ice_color">#abcce5</color>
+    <!-- 选中淡黄色 -->
+    <color name="yellow_chose_light_color">#fbed89</color>
+    <!-- 警示粉红色 -->
+    <color name="pink_warn_color">#f69d9d</color>
+    <!-- 豆沙绿 -->
+    <color name="green_bean_color">#c7edcc</color>
+    <!-- 朱红色 -->
+    <color name="red_zhu_color">#ec6e55</color>
+    <!-- 沙红色 -->
+    <color name="red_sand_color">#fd7462</color>
+    <!-- 蓝黑色 -->
+    <color name="blue_black_color">#031732</color>
+    <!-- 蓝绿色 -->
+    <color name="blue_green_color">#033647</color>
+
+    <!-- 轻蓝色 -->
+    <color name="blue_softly_color">#e0f0fc</color>
+    <!-- 轻白色 -->
+    <color name="white_softly_color">#f9feff</color>
+    <!-- 轻豆沙绿色 -->
+    <color name="green_bean_softly_color">#e3f6e5</color>
+    <!-- 淡棕红 -->
+    <color name="brown_red_light_color">#d2ac9f</color>
+    <!-- 冰青色 -->
+    <color name="green_ice_color">#aabebf</color>
+    <!-- 柱状图专用颜色 -->
+    <!-- 赤 -->
+    <color name="barchart_candy">#d21301</color>
+    <!-- 橙 -->
+    <color name="barchart_gold">#f9a600</color>
+    <!-- 黄 -->
+    <color name="barchart_lemon">#f0fb5f</color>
+    <!-- 绿 -->
+    <color name="barchart_pickle">#597d35</color>
+    <!-- 青 -->
+    <color name="barchart_mint">#9aedc3</color>
+    <!-- 蓝 -->
+    <color name="barchart_lapis">#2931c2</color>
+    <!-- 紫 -->
+    <color name="barchart_iris">#9866c7</color>
+
+    <!-- 柱状图原包中的青 -->
+    <color name="barchart_cyan">#C0FF8C</color>
+    <!-- 柱状图原包中的黄 -->
+    <color name="barchart_yellow">#FFF78C</color>
+    <!-- 柱状图原包中的橙 -->
+    <color name="barchart_orange">#FFD08C</color>
+    <!-- 柱状图原包中的蓝 -->
+    <color name="barchart_blue">#8CEAFF</color>
+    <!-- 柱状图原包中的红 -->
+    <color name="barchart_red">#FF8C9D</color>
+    <!-- 柱状图专用颜色 -->
+
+    <color name="part_line">#e1dddd</color>
+
+    <color name="loading_bg">#99000000</color>
+
+    <color name="color_solid">#989898</color>
+    <color name="color_read_white">#e6ddcc</color>
+    <color name="color_read_yellow">#dddddd</color>
+    <color name="color_read_grey">#3a3436</color>
+    <color name="color_read_green">#dcd0ba</color>
+    <color name="color_read_blue">#cce9ce</color>
+
+    <color name="color_text_white">#3a3342</color>
+    <color name="color_text_yellow">#323232</color>
+    <color name="color_text_grey">#95938f</color>
+    <color name="color_text_green">#3a3342</color>
+    <color name="color_text_blue">#323232</color>
+
+    <color name="color_head">#7b2f2f</color>
+    <color name="progress_back">#c4545454</color>
+
+    <!--字体颜色-->
+    <color name="text_1">#3C3D3D</color>
+    <color name="text_2">#3A342A</color>
+    <color name="text_3">#93928F</color>
+    <color name="text_4">#323333</color>
+    <color name="text_5">#627079</color>
+    <color name="text_6">#374234</color>
+    <color name="text_7">#FEFFFF</color>
+    <color name="text_8">#E1DBD1</color>
+    <color name="text_9">#D8C8C1</color>
+    <color name="text_10">#DBDFCE</color>
+    <color name="text_11">#D0DFD2</color>
+    <color name="text_12">#B8D2CF</color>
+    <color name="text_13">#43393A</color>
+    <color name="text_14">#44403A</color>
+    <color name="text_15">#474848</color>
+    <color name="text_16">#202936</color>
+    <color name="text_17">#251110</color>
+    <color name="text_18">#000101</color>
+    <color name="text_19">#BFC0C0</color>
+    <color name="text_20">#8B8C8C</color>
+    <color name="text_21">#656666</color>
+    <color name="text_22">#5E5353</color>
+    <color name="text_23">#3B4E4E</color>
+    <color name="text_24">#586476</color>
+    <color name="text_25">#F4F3F0</color>
+
+    <!--背景颜色-->
+    <color name="bac_1">#F4F3F0</color>
+    <color name="bac_2">#D9C8AC</color>
+    <color name="bac_3">#3A3230</color>
+    <color name="bac_4">#CBE8CF</color>
+    <color name="bac_5">#001C28</color>
+    <color name="bac_6">#806768</color>
+    <color name="bac_7">#7B7263</color>
+    <color name="bac_8">#FDF9F9</color>
+    <color name="bac_9">#BFBFC0</color>
+    <color name="bac_10">#DAD0C5</color>
+    <color name="bac_11">#C4BAAF</color>
+    <color name="bac_12">#C9CABB</color>
+    <color name="bac_13">#231F1F</color>
+    <color name="bac_14">#B9C9BC</color>
+    <color name="bac_15">#B4B999</color>
+    <color name="bac_16">#7B7364</color>
+    <color name="bac_17">#5D5E5E</color>
+    <color name="bac_18">#1F321A</color>
+    <color name="bac_19">#323333</color>
+    <color name="bac_20">#31100F</color>
+    <color name="bac_21">#010101</color>
+    <color name="bac_22">#B4BA9A</color>
+    <color name="bac_23">#B59B94</color>
+    <color name="bac_24">#678080</color>
+    <color name="bac_25">#6A7D65</color>
+
+    <color name="half_tran">#7fffffff</color>
+    <color name="all_tran">#00000000</color>
+    <color name="tran10">#10000000</color>
+    <color name="tran20">#20000000</color>
+    <color name="tran30">#30000000</color>
+    <color name="tran40">#40000000</color>
+    <color name="tran50">#50000000</color>
+    <color name="tran60">#60000000</color>
+    <color name="tran70">#70000000</color>
+    <color name="tran80">#80000000</color>
+    <color name="tran90">#90000000</color>
+    <color name="tran100">#99000000</color>
+
+    <color name="gray_f2">#F2F2F2</color>
+    <color name="line_color_title">#A8A8A8</color>
 </resources>

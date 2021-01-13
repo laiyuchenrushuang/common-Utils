@@ -57,7 +57,9 @@ public class LoadingDialog {
                 }
             });
         } catch (Exception e) {
-            Looper.prepare();
+            if (Looper.myLooper() == null) {
+                Looper.prepare();
+            }
             mDialog = new Dialog(context);
             View view = LayoutInflater.from(context).inflate(R.layout.dialog_loading_animation, null);
             mDialog.setContentView(view);

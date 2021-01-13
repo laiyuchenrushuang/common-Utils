@@ -7,6 +7,8 @@ import java.util.TimerTask;
 
 /**
  * Created by ly on 2020/8/11 9:36
+ *
+ * 倒计时器
  */
 public class TimeCounter {
 

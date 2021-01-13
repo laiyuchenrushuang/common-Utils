@@ -1,4 +1,10 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 29
@@ -6,22 +12,82 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 17
+        minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        ndk {
+            abiFilters 'armeabi-v7a'    //过滤的so库版本
+        }
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
+//    sourceSets {
+//        applicationVariants.all { variant ->
+//            variant.outputs.all { output ->
+//
+//
+//
+//                if (variant.buildType.name == "debug") {
+//                    output.outputFileName = "APKDemo_${variant.versionName}.${getCurrentTime()}_Debug.apk"
+//                } else if (variant.buildType.name == "release") {
+//                    output.outputFileName = "APKDemo_${variant.versionName}_${getCurrentTime()}.apk"
+//                }
+//            }
+//        }
+//    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    greendao{
+        //指定数据库schema版本号，迁移等操作会用到;
+        schemaVersion 1
+        //dao的包名，包名默认是entity所在的包；
+        daoPackage 'com.greendao.gen'
+        //生成数据库文件的目录;
+        targetGenDir 'src/main/java'
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ["libs"]
+        }
+    }
+}
+
+def getCurrentTime() {
+    return new Date().format("yyyyMMddHHmm")
+}
+
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+    maven { url 'https://dl.bintray.com/umsdk/release' }
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+    maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+    maven { url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+    maven {
+        url 'https://csspeechstorage.blob.core.windows.net/maven/'
+    }
+    jcenter()
+    google()
+    maven { url "https://jitpack.io" }
 }
 
 
@@ -29,6 +95,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.2.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -37,5 +104,29 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     //cardview
     implementation 'androidx.cardview:cardview:1.0.0'
+    //http
+    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    //状态栏
+    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    //greendao
+    implementation 'org.greenrobot:greendao:3.3.0' // add library greendao
+    //rxjava
+    implementation "io.reactivex.rxjava3:rxjava:3.0.0"
+    //rxAndroid 和上搭配使用
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    //滴水屏和刘海屏适配
+    implementation 'com.github.smarxpan:NotchScreenTool:0.0.1'
+    //图片加载
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    //buffer
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    //EventBus
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    //-----------------RxFFMpeg-----------------
+    //完整版
+   // implementation 'com.github.microshow:RxFFmpeg:4.9.0'
 
+    //极速版 (预计占用 4M 左右空间)，主要移除了一些不常用的编解码器
+    implementation 'com.github.microshow:RxFFmpeg:4.9.0-lite'
+    //-----------------RxFFMpeg-----------------
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="24dp"
+    android:gravity="center_horizontal">
+
+    <DatePicker
+        android:id="@+id/m_date_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner">
+
+    </DatePicker>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp">
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="120dp"
+            android:layout_height="42dp"
+            android:textSize="@dimen/text_large_16sp"
+            android:background="@drawable/btn_orange_bg1"
+            android:textColor="@color/white"
+            android:text="@string/cancel"/>
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="120dp"
+            android:layout_height="42dp"
+            android:textSize="@dimen/text_large_16sp"
+            android:background="@drawable/btn_orange_bg1"
+            android:textColor="@color/white"
+            android:layout_marginLeft="24dp"
+            android:text="@string/ok"/>
+    </LinearLayout>
+</LinearLayout>
