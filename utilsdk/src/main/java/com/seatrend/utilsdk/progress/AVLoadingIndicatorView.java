@@ -89,10 +89,10 @@ public class AVLoadingIndicatorView extends View {
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        mMinWidth = 24;
-        mMaxWidth = 48;
-        mMinHeight = 24;
-        mMaxHeight = 48;
+        mMinWidth = 48;
+        mMaxWidth = 96;
+        mMinHeight = 48;
+        mMaxHeight = 96;
 
         final TypedArray a = context.obtainStyledAttributes(
                 attrs, R.styleable.AVLoadingIndicatorView, defStyleAttr, defStyleRes);

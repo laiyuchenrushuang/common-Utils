@@ -16,12 +16,13 @@
     </style>
     <!-- 进度-->
     <style name="AVLoadingIndicatorView">
-        <item name="minWidth">48dip</item>
-        <item name="maxWidth">48dip</item>
-        <item name="minHeight">48dip</item>
-        <item name="maxHeight">48dip</item>
+        <item name="minWidth">96dip</item>
+        <item name="maxWidth">168dip</item>
+        <item name="minHeight">96dip</item>
+        <item name="maxHeight">168dip</item>
         <item name="indicatorName">BallPulseIndicator</item>
     </style>
+
     <style name="AppTheme.TransparentStausBar" parent="AppTheme"></style>
 
     <style name="editTextStyle" parent="@android:style/Widget.EditText">
@@ -115,6 +116,7 @@
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">right|center_vertical</item>
     </style>
+
     <style name="spinnerItemStyle_w" parent="android:Theme">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">14sp</item>
@@ -253,8 +255,14 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="sp30_black">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
     <style name="single_end">
-       <item name="android:lines">1</item>
+        <item name="android:lines">1</item>
         <item name="android:ellipsize">end</item>
     </style>
 
@@ -267,6 +275,7 @@
         <item name="android:lines">1</item>
         <item name="android:ellipsize">middle</item>
     </style>
+
     <style name="sp15_blue_b">
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/blue_2C8FEB</item>
@@ -279,8 +288,15 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="sp18_black_b">
         <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="sp30_black_b">
+        <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -333,12 +349,14 @@
     <style name="MyEditText_black" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/black</item>
         <item name="colorControlActivated">@color/black</item>
+        <item name="android:inputType">text</item>
     </style>
 
     <style name="sp20_white">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
     <style name="sp20_white_b">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/white</item>
@@ -349,19 +367,65 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
     <style name="sp20_black_b">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="sp40_black">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="sp50_black">
+        <item name="android:textSize">50sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="sp60_black">
+        <item name="android:textSize">60sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="sp70_black">
+        <item name="android:textSize">70sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="sp80_black">
+        <item name="android:textSize">80sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="mar25">
         <item name="android:layout_marginStart">25dp</item>
         <item name="android:layout_marginEnd">25dp</item>
     </style>
+
+    <style name="mar25_all">
+        <item name="android:layout_marginStart">25dp</item>
+        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:layout_marginBottom">25dp</item>
+    </style>
+
     <style name="mar50">
         <item name="android:layout_marginStart">50dp</item>
         <item name="android:layout_marginEnd">50dp</item>
+    </style>
+
+    <style name="mar200">
+        <item name="android:layout_marginStart">200dp</item>
+        <item name="android:layout_marginEnd">200dp</item>
+    </style>
+
+    <style name="mar50_all">
+        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:layout_marginEnd">50dp</item>
+        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:layout_marginBottom">50dp</item>
     </style>
 
     <style name="mar15">
@@ -389,8 +453,6 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/black</item>
     </style>
-
-
 
 
     <!--  animation-->

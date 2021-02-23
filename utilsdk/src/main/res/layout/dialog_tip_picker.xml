@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@drawable/bg_stroke_black_1"
     android:layout_marginStart="24dp"
     android:layout_marginEnd="24dp"
     android:gravity="center_horizontal">
@@ -38,7 +38,7 @@
             android:layout_width="120dp"
             android:layout_height="42dp"
             android:textSize="@dimen/text_large_16sp"
-            android:background="@drawable/btn_bule_bg2"
+            android:background="@drawable/bg_button_2"
             android:textColor="@color/black"
             android:text="@string/cancel"/>
 
@@ -47,8 +47,8 @@
             android:layout_width="120dp"
             android:layout_height="42dp"
             android:textSize="@dimen/text_large_16sp"
-            android:background="@drawable/btn_bule_bg1"
-            android:textColor="@color/white"
+            android:background="@drawable/bg_button_2"
+            android:textColor="@color/black"
             android:layout_marginLeft="24dp"
             android:text="@string/ok"/>
     </LinearLayout>

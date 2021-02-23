@@ -10,10 +10,11 @@ import java.util.Map;
 public abstract class BasePresenter {
     public BaseView mView;
     public BasePresenter(BaseView bv){
-
         this.mView = bv;
     }
     public abstract void doNetworkTask(Context context,Map<String, String> map, String url,String flag);
+    public abstract void doNetworkTask2(Context context,Map<String, Integer> map, String url,String flag);
+    public abstract void doNetworkTask3(Context context,Map<String, Object> map, String url,String flag);
     public abstract void doJsonPost(Context context,String json, String url);
     public abstract void requestResults(CommonResponse commonResponse, boolean isOk);
 }

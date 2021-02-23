@@ -2,13 +2,20 @@ package com.seatrend.utilsdk.httpserver.common;
 
 public interface Constants {
 
-    public interface Companion {
+    //不需要token的结果集
+    String[] NO_TOKEN = {""};
 
-       final String GET = "GET";
-       final String POST = "POST";
-       final Boolean AES_ENABLE = false;
-       final String AUTH ="Accept" ;
+    interface Companion {
 
+        String GET = "GET";
+        String POST = "POST";
+        String DELETE = "DELETE";
+        String PATCH = "PATCH";
+        String AUTH = "Authorization";
+
+        Boolean AES_ENABLE = false; //AES开关
 
     }
+
+
 }

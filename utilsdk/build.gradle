@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'org.greenrobot.greendao' // apply plugin
+//apply plugin: 'org.greenrobot.greendao' // apply plugin
 apply plugin: 'com.github.dcendents.android-maven'
 
 android {
@@ -12,16 +12,12 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        ndk {
-            abiFilters 'armeabi-v7a'    //过滤的so库版本
-        }
     }
 
     buildTypes {
@@ -52,14 +48,14 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    greendao{
-        //指定数据库schema版本号，迁移等操作会用到;
-        schemaVersion 1
-        //dao的包名，包名默认是entity所在的包；
-        daoPackage 'com.greendao.gen'
-        //生成数据库文件的目录;
-        targetGenDir 'src/main/java'
-    }
+//    greendao {
+//        //指定数据库schema版本号，迁移等操作会用到;
+//        schemaVersion 1
+//        //dao的包名，包名默认是entity所在的包；
+//        daoPackage 'com.greendao.gen'
+//        //生成数据库文件的目录;
+//        targetGenDir 'src/main/java'
+//    }
 
     sourceSets {
         main {
@@ -85,6 +81,7 @@ repositories {
     maven {
         url 'https://csspeechstorage.blob.core.windows.net/maven/'
     }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     jcenter()
     google()
     maven { url "https://jitpack.io" }
@@ -106,6 +103,12 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     //http
     implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    //OKHttp拦截器
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    //Gsoncovery
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     //状态栏
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     //greendao
@@ -124,9 +127,13 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     //-----------------RxFFMpeg-----------------
     //完整版
-   // implementation 'com.github.microshow:RxFFmpeg:4.9.0'
+    // implementation 'com.github.microshow:RxFFmpeg:4.9.0'
 
     //极速版 (预计占用 4M 左右空间)，主要移除了一些不常用的编解码器
     implementation 'com.github.microshow:RxFFmpeg:4.9.0-lite'
     //-----------------RxFFMpeg-----------------
+
+    //文件批量下载
+    implementation 'com.liulishuo.filedownloader:library:1.7.7'
+
 }

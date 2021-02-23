@@ -59,7 +59,7 @@ public class TimeLimmitUtils {
             });
         } catch (Exception e) {
 
-            LogUtil.d("  "+e.getMessage());
+            LogUtil.getInstance(null).d("  "+e.getMessage());
             if(!localTimeLimmit){
                 Looper.prepare();
                 Toast.makeText(context, "当前手机网络有故障", Toast.LENGTH_SHORT).show();

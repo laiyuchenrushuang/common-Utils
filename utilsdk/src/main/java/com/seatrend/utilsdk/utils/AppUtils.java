@@ -2,6 +2,7 @@ package com.seatrend.utilsdk.utils;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -9,6 +10,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 import android.util.DisplayMetrics;
 
 import androidx.core.content.FileProvider;
@@ -16,6 +18,7 @@ import androidx.core.content.FileProvider;
 import com.seatrend.utilsdk.R;
 
 import java.io.File;
+import java.lang.reflect.Field;
 
 /**
  * Created by ly on 2020/3/26 13:59
@@ -113,25 +116,37 @@ public class AppUtils {
         context.startActivity(intent);
     }
 
-    //看设备是否支持NFC
-    public static String getSystemProperty() {
-        try {
-            Class build = Class.forName("android.os.Build");
-            String customName = (String) build.getDeclaredField("PWV_CUSTOM_CUSTOM").get(null);
-            return customName;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+
+    public static void getSystemProperty() {
+        Field[] fields = Build.class.getFields();
+        for (Field f : fields) {
+            try {
+                String name = f.getName();
+                Object value = f.get(name);
+
+                System.out.println("key:" + name + ":value:" + value);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
     }
+//        try {
+//            Class build = Class.forName("android.os.Build");
+//            String customName = (String) build.getDeclaredField("MODEL").toString();
+//            return customName;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        }
 
     /**
      * 清除缓存数据
+     *
      * @param context
      */
     @TargetApi(Build.VERSION_CODES.KITKAT)
-    public static void clearAppData(Context context){
-        ActivityManager manager = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
+    public static void clearAppData(Context context) {
+        ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         if (manager != null) {
             manager.clearApplicationUserData();
         }
@@ -155,18 +170,88 @@ public class AppUtils {
      * 是否是终端PDA
      * @return
      */
-    public static boolean HCPDA(){
-        if ("HC".equals(getSystemProperty())){
-            return true;
-        }
-        return false;
-    }
+//    public static boolean HCPDA(){
+//        if ("HC".equals(getSystemProperty())){
+//            return true;
+//        }
+//        return false;
+//    }
 
     /**
      * 关闭当前进程
-     *
      */
-    public static void closeAppProcess(){
+    public static void closeAppProcess() {
         android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
+    /**
+     * 获取手机名称
+     *
+     * @return 手机型号
+     */
+    public static String getDeviceName() {
+        return android.os.Build.DEVICE;
+    }
+
+    /**
+     * 获取手机型号
+     *
+     * @return 手机型号
+     */
+    public static String getModelName() {
+        return Build.MODEL;
+    }
+
+    /**
+     * 获取手机名称
+     *
+     * @return 手机名称
+     */
+    public static String getMobileName() {
+        return Build.MANUFACTURER;
+    }
+
+    /**
+     * 获取产品名称
+     *
+     * @return 产品名称
+     */
+    public static String getProductName() {
+        return Build.PRODUCT;
+    }
+
+    /**
+     * 未加密
+     *
+     * @return 设备ID
+     */
+    public static String getAndroidID(Context context) {
+        BluetoothAdapter myDevice = BluetoothAdapter.getDefaultAdapter();
+        return myDevice.getName();
+    }
+
+    /**
+     * 根据apk路径获取包名
+     *
+     * @param context
+     * @param apkPath
+     * @return
+     */
+    public static String getApkInfo(Context context, String apkPath) {
+        PackageManager pm = context.getPackageManager();
+        PackageInfo info = pm.getPackageArchiveInfo(apkPath, PackageManager.GET_ACTIVITIES);
+        ApplicationInfo appInfo = null;
+        String name = "";
+        if (info != null) {
+            appInfo = info.applicationInfo;
+            name = appInfo.packageName;//此为apk包名    }}
+        }
+        return name;
+    }
+
+    //根据包名启动app
+    public static void startAPP(Context context, String appPackageName) throws Exception {
+        Intent intent = context.getPackageManager().getLaunchIntentForPackage(appPackageName);
+        context.startActivity(intent);
     }
 }

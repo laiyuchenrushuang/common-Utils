@@ -22,8 +22,16 @@ public class NormalModule extends BaseModule {
 
     @Override
     public void doWork(Context context,Map<String, String> map, String url,String flag) {
-
         HttpService.getInstance(context).getDataFromServer(map,url, flag, this);
+    }
+
+    @Override
+    public void doWork2(Context context, Map<String, Integer> map, String url, String flag) {
+        HttpService.getInstance(context).getDataFromServer2(map,url, flag, this);
+    }
+    @Override
+    public void doWork3(Context context, Map<String, Object> map, String url, String flag) {
+        HttpService.getInstance(context).getDataFromServer3(map,url, flag, this);
     }
 
     @Override

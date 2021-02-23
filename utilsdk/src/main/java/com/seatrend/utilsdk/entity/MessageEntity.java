@@ -6,13 +6,13 @@ package com.seatrend.utilsdk.entity;
 
 public class MessageEntity {
 
-    private String message;
+    private String msg;
 
     public String getMessage() {
-        return message;
+        return msg;
     }
 
     public void setMessage(String message) {
-        this.message = message;
+        this.msg = message;
     }
 }

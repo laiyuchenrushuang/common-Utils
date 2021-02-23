@@ -1,4 +1,12 @@
 <resources>
+    <dimen name="text_super_100sp">100sp</dimen>
+    <dimen name="text_super_90sp">90sp</dimen>
+    <dimen name="text_super_80sp">80sp</dimen>
+    <dimen name="text_super_70sp">70sp</dimen>
+    <dimen name="text_super_60sp">60sp</dimen>
+    <dimen name="text_super_50sp">50sp</dimen>
+    <dimen name="text_super_40sp">40sp</dimen>
+    <dimen name="text_super_30sp">30sp</dimen>
     <dimen name="text_super_24sp">24sp</dimen>
     <dimen name="text_super_20sp">20sp</dimen>
     <dimen name="text_super_18sp">18sp</dimen>

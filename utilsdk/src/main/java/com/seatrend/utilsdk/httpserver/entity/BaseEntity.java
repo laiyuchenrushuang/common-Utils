@@ -7,16 +7,16 @@ import java.io.Serializable;
  */
 
 public class BaseEntity implements Serializable {
-    private boolean status;
+//    private boolean status;
     private int code;
-    private String message;
+    private String msg;
 
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-    public boolean getStatus() {
-        return status;
-    }
+//    public void setStatus(boolean status) {
+//        this.status = status;
+//    }
+//    public boolean getStatus() {
+//        return status;
+//    }
 
     public void setCode(int code) {
         this.code = code;
@@ -26,9 +26,9 @@ public class BaseEntity implements Serializable {
     }
 
     public void setMessage(String message) {
-        this.message = message;
+        this.msg = message;
     }
     public String getMessage() {
-        return message;
+        return msg;
     }
 }

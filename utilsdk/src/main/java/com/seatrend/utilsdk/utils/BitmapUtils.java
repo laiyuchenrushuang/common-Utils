@@ -3,10 +3,14 @@ package com.seatrend.utilsdk.utils;
 import android.content.Context;
 import android.graphics.*;
 import android.media.ExifInterface;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
 
 import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 
 /**
  * Created by seatrend on 2018/8/28.
@@ -88,14 +92,22 @@ public class BitmapUtils {
         return photo;
     }
 
-    public static String saveBitmap(Context context,Bitmap bitmap, String fileName) {
+    /**
+     * 通过bitmap 转为文件
+     * @param context  上下文
+     * @param bitmap bitmap对象
+     * @param fileName 把bitmap转为文件的名字  123.jpg   fileName = 123
+     * @param parentfilePath 在sdcard 目录下的 文件件名  parentfilePath =/123  整体的file 名 [/storage/emulated/0/Android/data/yourPackageName/]123
+     * @return 绝对的文件path
+     */
+    public static String saveBitmap(Context context,Bitmap bitmap, String fileName, String parentfilePath) {
 
-        File catalog = new File(context.getExternalFilesDir(null).toString()+"/Inspection/CameraPhoto/");
+        File catalog = new File(context.getExternalFilesDir(null).toString()+parentfilePath);
         if (!catalog.exists()) {
             catalog.mkdirs();
         }
 
-        File file = new File(catalog, fileName + ".jpg");
+        File file = new File(catalog, fileName);
         if (file.exists()) {
             file.delete();
         }
@@ -259,37 +271,76 @@ public class BitmapUtils {
     }
 
     /**
-     * 将图片转换成Base64编码的字符串
+     * 文件转base64字符串
+     * @param file
+     * @return
      */
-    public static String imageToBase64(String path) {
-        if (TextUtils.isEmpty(path)) {
-            return null;
-        }
-        InputStream is = null;
-        byte[] data = null;
-        String result = null;
+    public static String fileToBase64(File file) {
+        String base64 = null;
+        InputStream in = null;
         try {
-            is = new FileInputStream(path);
-            //创建一个字符流大小的数组。
-            data = new byte[is.available()];
-            //写入数组
-            is.read(data);
-            //用默认的编码格式进行编码
-            result = Base64.encodeToString(data, Base64.DEFAULT);
-        } catch (Exception e) {
+            in = new FileInputStream(file);
+            byte[] bytes = new byte[in.available()];
+            int length = in.read(bytes);
+            base64 = Base64.encodeToString(bytes, 0, length, Base64.DEFAULT);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
-            if (null != is) {
-                try {
-                    is.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
+            try {
+                if (in != null) {
+                    in.close();
                 }
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
-
         }
-        return result;
+        return base64;
     }
+
+    /**
+     * base64字符串转文件
+     * @param base64
+     * @param fileName  文件的绝对目录
+     * @return
+     */
+    public static File base64ToFile(String base64,String fileName ) {
+        File file = null;
+        FileOutputStream out = null;
+        try {
+            // 解码，然后将字节转换为文件
+            file = new File(fileName);
+            if (!file.exists())
+                file.createNewFile();
+            byte[] bytes = Base64.decode(base64, Base64.DEFAULT);// 将字符串转换为byte数组
+            ByteArrayInputStream in = new ByteArrayInputStream(bytes);
+            byte[] buffer = new byte[1024];
+            out = new FileOutputStream(file);
+            int bytesum = 0;
+            int byteread = 0;
+            while ((byteread = in.read(buffer)) != -1) {
+                bytesum += byteread;
+                out.write(buffer, 0, byteread); // 文件写操作
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } finally {
+            try {
+                if (out!= null) {
+                    out.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return file;
+    }
+
+
 
     public static int getBitmapWithRightRotation(String path) {
 //        android.hardware.Camera.CameraInfo info =
@@ -327,5 +378,34 @@ public class BitmapUtils {
             e.printStackTrace();
         }
         return degree;
+    }
+
+
+    /**
+     * 通过url 获得bitmap
+     * @param url
+     * @return bitmap
+     */
+    public static Bitmap getBitmapByUrl(String url) {
+        Bitmap bm = null;
+        try {
+            URL iconUrl = new URL(url);
+            URLConnection conn = iconUrl.openConnection();
+            HttpURLConnection http = (HttpURLConnection) conn;
+
+            int length = http.getContentLength();
+
+            conn.connect();
+            // 获得图像的字符流
+            InputStream is = conn.getInputStream();
+            BufferedInputStream bis = new BufferedInputStream(is, length);
+            bm = BitmapFactory.decodeStream(bis);
+            bis.close();
+            is.close();// 关闭流
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bm;
     }
 }

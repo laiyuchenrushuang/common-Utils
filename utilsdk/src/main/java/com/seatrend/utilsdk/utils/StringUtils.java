@@ -42,6 +42,24 @@ public class StringUtils {
         }
     }
 
+
+    /**
+     *  把秒换算成 "yyyy-MM-dd"
+     * @param date
+     * @return
+     */
+    public static String intToStringDataNoHour(int date) {
+        if(0 == date){
+            return null;
+        }
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA); // "yyyy-MM-dd HH:mm:ss"
+            return sdf.format(new Date(date*1000L));
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public static long dateToStamp(String s) {
 
         try {
@@ -72,11 +90,30 @@ public class StringUtils {
      * 处理空字符串
      */
     public static String isNull(Object obj) {
-        String content = "/";
+        String content = "";
 
         try {
             if (obj != null && !obj.toString().equals("") && !obj.toString().equals("null"))
                 content = obj.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return content;
+    }
+
+
+    /**
+     * 处理空字符串
+     *
+     * true 代表空  ||||   false 不为空
+     */
+    public static Boolean isNull_b(Object obj) {
+        boolean content = true;
+
+        try {
+            if (obj != null && !obj.toString().equals("") && !obj.toString().equals("null") && obj.toString().length()>0)
+                content = false;
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -190,4 +227,32 @@ public class StringUtils {
         return m.matches();
     }
 
+    /**
+     * json解析是去掉回车空格换行 其他
+     *    注：\n 回车(\u000a)
+     *     \t 水平制表符(\u0009)
+     *     \s 空格(\u0008)
+     *     \r 换行(\u000d)
+     *
+     * @param str
+     * @return 完整的string
+     */
+    public static String replaceBlank(String str) {
+        String dest = "";
+        if (str!=null) {
+            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+            Matcher m = p.matcher(str);
+            dest = m.replaceAll("");
+        }
+        return dest;
+    }
+
+    /**
+     *
+     * 把时间long 的格式转为天
+     * @return
+     */
+    public static String longToDay(long time){
+        return String.valueOf(time/(24*60*60*1000));
+    }
 }

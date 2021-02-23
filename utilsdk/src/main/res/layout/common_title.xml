@@ -7,12 +7,12 @@
 
     <ImageView
         android:id="@+id/iv_back"
-        android:layout_width="22dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_centerVertical="true"
-        android:cropToPadding="true"
+        android:scaleType="centerInside"
         android:layout_marginLeft="12dp"
-        android:src="@drawable/ic_back" />
+        android:src="@drawable/back_icon_black" />
 
     <TextView
         android:id="@+id/tv_titile"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_super_20sp" />
+        android:textSize="@dimen/text_super_30sp" />
 
     <TextView
         android:id="@+id/tv_right"
@@ -39,7 +39,7 @@
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:scaleType="centerInside"
+        android:scaleType="centerCrop"
         android:layout_marginEnd="12dp"
         android:padding="6dp" />
 

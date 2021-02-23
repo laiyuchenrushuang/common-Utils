@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.InputFilter
 import android.text.Spanned
+import android.text.TextUtils
 import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,22 +18,21 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.seatrend.utilsdk.R
-
-
-import com.seatrend.utilsdk.utils.CarHphmUtils
-import com.seatrend.utilsdk.utils.DP2PX
-import com.seatrend.utilsdk.utils.LoadingDialog
-import com.seatrend.utilsdk.utils.StringUtils
+import com.seatrend.utilsdk.httpserver.entity.CommonResponse
+import com.seatrend.utilsdk.httpserver.view.NormalView
+import com.seatrend.utilsdk.utils.*
 
 /**
  * Created by seatrend on 2018/10/8.
  */
 
-abstract class BaseFragment : Fragment(), BaseView {
+abstract class BaseFragment : Fragment(), BaseView{
 
     private var llNoData: LinearLayout? = null
     private var tvNoDataMsg: TextView? = null
     private var rootView: View? = null
+    protected var mDialogListenr: DialogListener? = null
+
     val ID_CARD_READ_CODE = 10
 
     //TextView 和 ScollView 冲突监听器
@@ -150,8 +150,10 @@ abstract class BaseFragment : Fragment(), BaseView {
             mDialog.setCanceledOnTouchOutside(true)
             val tvMsg = mDialog.findViewById<TextView>(R.id.tv_msg)
             val btnOk = mDialog.findViewById<Button>(R.id.btn_ok)
+            val iv_cancel = mDialog.findViewById<ImageView>(R.id.iv_cancel)
             tvMsg.text = msg
             btnOk.setOnClickListener { mDialog.dismiss() }
+            iv_cancel.setOnClickListener { mDialog.dismiss() }
             mDialog.show()
         } catch (e: Exception) {
 
@@ -167,6 +169,67 @@ abstract class BaseFragment : Fragment(), BaseView {
     fun hideNoDataView() {
         llNoData!!.visibility = View.GONE
 
+    }
+
+
+    fun showTipDialog(titleS: String?, contentS: String, flag: Int) {
+        val dialog = Dialog(activity!!)
+        // MAlertDialog dialog=new MAlertDialog(this);
+        dialog.setContentView(R.layout.dialog_tip_picker)
+        dialog.setCanceledOnTouchOutside(false)
+
+        val btnCancel = dialog.findViewById<Button>(R.id.btn_cancel)
+        val btnOk = dialog.findViewById<Button>(R.id.btn_ok)
+        val title = dialog.findViewById<TextView>(R.id.title)
+        val content = dialog.findViewById<TextView>(R.id.content)
+        if (TextUtils.isEmpty(titleS)) {
+            title.visibility = View.GONE
+        } else {
+            title.visibility = View.VISIBLE
+        }
+        content.text = contentS
+        dialog.show()
+        btnCancel.setOnClickListener {
+            dialog.dismiss()
+            mDialogListenr!!.tipDialogNOListener(flag)
+        }
+        btnOk.setOnClickListener {
+            dialog.dismiss()
+            mDialogListenr!!.tipDialogOKListener(flag)
+        }
+    }
+
+
+
+    fun showTipDialog(titleS: String?, contentS: String, listenter: DialogListener) {
+        val dialog = Dialog(activity!!)
+        // MAlertDialog dialog=new MAlertDialog(this);
+        dialog.setContentView(R.layout.dialog_tip_picker)
+        dialog.setCanceledOnTouchOutside(false)
+
+        val btnCancel = dialog.findViewById<Button>(R.id.btn_cancel)
+        val btnOk = dialog.findViewById<Button>(R.id.btn_ok)
+        val title = dialog.findViewById<TextView>(R.id.title)
+        val content = dialog.findViewById<TextView>(R.id.content)
+        if (TextUtils.isEmpty(titleS)) {
+            title.visibility = View.GONE
+        } else {
+            title.visibility = View.VISIBLE
+        }
+        content.text = contentS
+        dialog.show()
+        btnCancel.setOnClickListener {
+            dialog.dismiss()
+            listenter!!.tipDialogNOListener(0)
+        }
+        btnOk.setOnClickListener {
+            dialog.dismiss()
+            listenter!!.tipDialogOKListener(0)
+        }
+    }
+
+    fun setListener(listenr: DialogListener) {
+        mDialogListenr = listenr
     }
 
     fun showTimeDialog(view: TextView) {
@@ -210,8 +273,8 @@ abstract class BaseFragment : Fragment(), BaseView {
         }
     }
 
-    protected fun showLog(s: String) {
-        Log.d("lylog", s)
+    protected fun showLog(s: Any) {
+        LogUtil.getInstance(activity).d(s.toString())
     }
 
     open fun getSYRXXCommitData() {
@@ -250,11 +313,40 @@ abstract class BaseFragment : Fragment(), BaseView {
         }
     }
 
-    fun showLoadingDialog() {
-        LoadingDialog.getInstance().showLoadDialog(context)
+    /**
+     * 显示view
+     */
+    protected fun showView(view: View?) {
+        if (view != null && view.visibility != View.VISIBLE) {
+            view.visibility = View.VISIBLE
+        }
+    }
+
+    /**
+     * 消失view
+     */
+    protected fun dissMissView(view: View?) {
+        if (view != null && view.visibility != View.GONE) {
+            view.visibility = View.GONE
+        }
+    }
+
+    fun showLoadingDialog() :Dialog{
+       return LoadingDialog.getInstance().showLoadDialog(context)
     }
 
     fun dismissLoadingDialog() {
         LoadingDialog.getInstance().dismissLoadDialog()
+    }
+
+
+    open fun netWorkTaskfailed(commonResponse: CommonResponse?) {
+        dismissLoadingDialog()
+        showErrorDialog(commonResponse!!.getResponseString())
+    }
+
+    interface DialogListener {
+        fun tipDialogOKListener(flag: Int)
+        fun tipDialogNOListener(flag: Int)
     }
 }

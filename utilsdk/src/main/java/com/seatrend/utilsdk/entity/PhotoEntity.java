@@ -71,6 +71,7 @@ public class PhotoEntity {
     public void setSfz(String sfz) {
         this.sfz = sfz;
     }
+
     public String getLsh() {
         return lsh;
     }

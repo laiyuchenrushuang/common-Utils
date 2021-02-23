@@ -14,7 +14,7 @@ public class SharedPreferencesUtils {
      */
     public static String getNetworkAddress(Context context){
         return   context.getSharedPreferences(Constants.SETTING, Context.MODE_PRIVATE)
-                .getString("key","http://www.joyseevip.com/fate");
+                .getString("key","https://api2.bailianlong.com/v1");
 //                .getString("key","http://192.168.0.218:8080/scrapCarSystem/");
     }
 
